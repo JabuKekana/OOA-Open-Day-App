@@ -1,0 +1,17 @@
+/* Hide credits section on desktop screens */
+@media only screen and (min-width: 993px) {
+    .notifications {
+      display: none;
+    }
+  }
+  
+  /* Display credits section on smaller screens */
+  @media only screen and (max-width: 992px) {
+    .notifications {
+      display: block;
+    }
+  }
+
+.section__title{
+    text-align: left;
+}

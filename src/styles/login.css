@@ -1,0 +1,102 @@
+.signup__page {
+    background: #0C2140;
+    min-height: 100vh; 
+  }
+  
+.landing__header{
+    background: #0C2140;
+}
+
+.signup__page{
+    background: #0C2140;
+    height: 100%;
+}
+.auth__form{
+    background: var(--primary-color);
+    padding: 40px;
+    border-radius: 5px;
+}
+.auth__btn{
+    background: #AB8E3D !important;
+    color: var(--primary-color);
+    font-weight: 600;
+    border-radius: 27px;
+}
+.auth__form p{
+    margin-top: 30px;
+}
+.auth__form p a{
+    color: rgba(255, 255, 255, 0.735);
+}
+.auth__form input[type='file']{
+    color: #fff;
+    cursor: pointer;
+}
+.signup__page h3{
+    color: #FFF;
+    color: #FFF;
+    text-align: center;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 800;
+    font-style: bold;
+}
+.buy__btn{
+    border-radius: 80px;
+}
+.bot-image {
+    position: absolute;
+    top: 68%; 
+    left: 69%; 
+    transform: translate(-50%, -50%); 
+    width: 50%;
+    height: auto; 
+    opacity: 100%;
+    z-index: 0;
+  }
+  /* .cloud-image {
+    position: absolute;
+    top: 45%; 
+    left: 64%; 
+    transform: translate(-50%, -50%); 
+    width: 50%;
+    height: auto; 
+    opacity: 100%;
+    z-index: 0;
+  } */
+.signup__page button{
+    padding: 10px 20px;
+    background-color: #AB8E3D;
+    color: #fff;
+    border: none;
+    border-radius: 27px;
+    font-size: 22px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 50px;
+    position: relative; 
+    z-index: 2; 
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.8);
+  }
+
+
+  .landing__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #0C2140;
+    height: 100%;
+  }
+  
+  .qoa-button {
+    background-color: #0C2140;
+    color: #fff; 
+    border: 2px solid rgb(255, 255, 255);
+    padding: 10px 20px; 
+    cursor: pointer;
+  }
+  .qoa-button {
+    margin-right: 20px;
+  }
+  

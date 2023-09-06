@@ -1,0 +1,124 @@
+/* Hide credits section on desktop screens */
+@media only screen and (min-width: 993px) {
+    .credits__section {
+      display: none;
+    }
+  }
+  
+  /* Display credits section on smaller screens */
+  @media only screen and (max-width: 992px) {
+    .credits__section {
+      display: block;
+    }
+  }
+  
+
+.credits__section{
+    background: #0C2140;
+}
+.credits__section{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.credits__content h2{
+    color: var(--primary-color);
+    font-size: 2.0rem;
+    font-weight: 600;
+    margin: 20px 0px;
+}
+.credits__content p{
+    color: black;
+    line-height: 28px;
+}
+.credits__section p:nth-child(1){
+    font-weight: 500;
+}
+
+.buy__btn a:hover{
+    color: #fff;
+}
+
+.credits__content{
+    padding-top: 45px;
+}
+.store__btn{
+  background: #fff;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+.store__btn a:hover{
+    color: var(--primary-color);
+}
+
+.qrcode__img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: white;
+    border-radius: 20px;
+    padding: 60px;
+  }
+  
+
+
+  .coupon-count {
+    display: inline-block;
+    background-color: #8b1a4b;
+    color: white;
+    border-radius: 50%;
+    font-size: 30px; 
+    padding: 40px 50px;
+    margin: 20px 50px;
+  }
+
+@media only screen and (max-width: 992px){
+    .credits__content h2{
+        font-style: 2rem;
+    }
+    .section__title{
+        font-size: 1.7rem;
+    }
+    .clock__top-content{
+        text-align: center;
+    }
+    .clock__top-content h4{
+      font-size: 0.9rem !important;  
+    }
+    .clock__top-content h3{
+        font-size: 1rem !important;
+    }
+    .count__down-col{
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .credits__content h2{
+        font-style: 1.6rem;
+        color: white;
+    }
+    .credits__content p{
+        font-style: 0.9rem;
+        color: white;
+    }
+    .buy__btn a{
+        font-size: 0.9rem;
+    }
+    .section__title{
+        font-size: 1.4rem;
+    }
+}
+
+@media only screen and (max-width: 576px){
+    .credits__content{
+        margin-bottom: 40px;
+    }
+}
+
+.credits__content ol{
+    text-align: start;
+    color: white;
+}

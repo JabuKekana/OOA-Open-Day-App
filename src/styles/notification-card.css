@@ -1,0 +1,32 @@
+.product__item{
+    cursor: pointer;
+} 
+.product__info h3 a{
+    font-style: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-top: 15px;
+}
+.product__info a:hover{
+    color: inherit;
+}
+.product__info span{
+    font-size: 0.9rem;
+}
+.product__name span{
+    color: rgb(119, 119, 119);
+    font-size: 0.8rem;
+}
+@media only screen and (max-width:992px){
+    .product__info h3 a{
+        font-size: 1.1rem;
+    }
+}
+@media only screen and (max-width:768px){
+    .product__info h3 a{
+        font-size: 1.1rem;
+    }
+    .product__card-bottom span i{
+        font-size: 1rem;
+    }
+}

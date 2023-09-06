@@ -1,0 +1,41 @@
+.product__details{
+    margin-top: 70px;
+}
+
+.product__details h2{
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.product__price{
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.tab__wrapper{
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.active__tab{
+    font-weight: 600;
+}
+.tab__content p{
+    line-height: 30px;
+}
+
+
+
+@media only screen and (max-width: 768px){
+    .product__details h2{
+        font-size: 1.4rem;
+        color: rgb(88, 88, 88);
+    }
+    .product__details p{
+        font-size: 1.3rem;
+        color: black;
+    }
+    .timestamp{
+        font-size: 0.8rem;
+    }
+}

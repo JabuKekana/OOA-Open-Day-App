@@ -1,0 +1,91 @@
+/* Hide credits section on desktop screens */
+@media only screen and (min-width: 993px) {
+  .schedule-container {
+    display: none;
+  }
+}
+
+/* Display credits section on smaller screens */
+@media only screen and (max-width: 992px) {
+  .schedule-container {
+    display: block;
+  }
+}
+
+  .schedule-container {
+    padding: 20px;
+      background: #0b1f40;
+  }
+
+  .schedule-container h2 {
+color: white;
+text-align: center;
+  }
+
+  .schedule-container h4 {
+color: white;
+text-align: center;
+  }
+  
+  .schedule-title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+  
+  .activities-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .activity-item {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .activity-item h3 {
+    margin: 0;
+    color: white;
+  }
+  
+  .activity-item.active {
+    background-color: #4e4e4e;
+    color: rgb(255, 255, 255);
+  }
+  
+  .activity-details {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .activity-item {
+    position: relative;
+  }
+  
+  .activity-name {
+    cursor: pointer;
+    margin: 0;
+    display: inline-block;
+    margin-right: 8px; /* Add spacing between activity name and button */
+  }
+  
+  .show-more-button {
+    background-color: #880d0d;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 50px;
+    
+  }
+  
+  .show-more-button:hover {
+    background-color: #880d0d;
+  }
+  

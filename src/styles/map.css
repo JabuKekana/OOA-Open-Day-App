@@ -1,0 +1,52 @@
+.map-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  background: #0b1f40;
+  gap: 20px;
+
+}
+
+.map-container h2{
+    color: white;
+    margin-top: 30px;
+}
+.map-container p{
+    color: rgb(255, 255, 255);
+}
+
+.map {
+  width: 100%; 
+  max-width: 840px; 
+  margin: 0 auto;
+
+
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 75%; 
+  position: relative;
+}
+
+.map iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: none;
+  border: 15px solid #0b1f40;
+  border-radius: 35px;
+  box-sizing: border-box; 
+}
+
+.icon-row a{
+    color: white;
+}
+
+
+@media screen and (max-width: 768px) {
+  .map {
+    max-width: 100%; 
+  }
+}

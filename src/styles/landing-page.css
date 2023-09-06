@@ -1,0 +1,68 @@
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #0c2140;
+  overflow: hidden;
+  position: relative;
+}
+.landingPage-img{
+  width: 224px;
+}
+
+.content {
+  text-align: center;
+  z-index: 1;
+}
+
+.content h2 {
+  font-size: 1.7rem;
+  margin: 80px 0 150px 0;
+  color: #fff;
+  opacity: 0; /* Set initial opacity to 0 */
+  animation: slideIn 1s ease forwards;
+}
+
+.sign-up-button {
+  padding: 10px 20px;
+  background-color: #AB8E3D;
+  color: #fff;
+  border: none;
+  border-radius: 27px;
+  font-size: 22px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 50px;
+  position: relative; /* Add this line */
+  z-index: 2; /* Add this line */
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.sign-up-button:hover {
+  background-color: #0056b3;
+}
+
+.background-image {
+  position: absolute;
+  top: 65%; 
+  left: 64%; 
+  transform: translate(-50%, -50%); 
+  width: 50%;
+  height: auto; 
+  opacity: 100%;
+  z-index: 0;
+}
+
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

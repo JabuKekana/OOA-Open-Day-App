@@ -1,0 +1,116 @@
+/* Hide credits section on desktop screens */
+@media only screen and (min-width: 993px) {
+  .queries__section {
+    display: none;
+  }
+}
+
+/* Display credits section on smaller screens */
+@media only screen and (max-width: 992px) {
+  .queries__section {
+    display: block;
+  }
+}
+
+.queries__section {
+  background: #f8f8f8;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.section__title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.section__subtitle {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.queries__content {
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Message Styles */
+.messages {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.message {
+  padding: 8px 12px;
+  border-radius: 4px;
+  max-width: 70%;
+  word-wrap: break-word;
+  margin-bottom: 8px;
+}
+
+.user {
+  background-color: #dff0d8;
+  align-self: flex-start;
+}
+
+.agent {
+  background-color: #d9edf7;
+  align-self: flex-end;
+}
+
+/* Input Form Styles */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="text"],
+textarea {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: 100%;
+  outline: none;
+}
+
+button {
+  background-color: #8b1a4b;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+  .queries__content {
+    font-size: 14px;
+  }
+
+  .input-container {
+    align-items: center;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="text"],
+  textarea {
+    width: 100%;
+  }
+}

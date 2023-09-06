@@ -1,0 +1,48 @@
+.add-user-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #f4f4f4;
+}
+
+.add-user-section h2 {
+  text-align: start;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.add-user-section .form-group {
+  margin-bottom: 20px;
+}
+
+.add-user-section Label {
+  font-weight: bold;
+  color: #333;
+}
+
+.add-user-section Input[type="text"],
+.add-user-section Input[type="email"],
+.add-user-section Input[type="password"] {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.add-user-section .add-user-btn {
+  width: 40%;
+  padding: 10px;
+  margin: 20px 20px 20px 0px;
+  background-color: #8b1a4b;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-user-section .add-user-btn:hover {
+  background-color: #0c2140;
+}
+
