@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import Helmet from "../components/Helmet/Helmet";
 import { Container, Row, Col } from "reactstrap";
@@ -5,28 +6,46 @@ import "../styles/credits.css";
 import QRCode from "react-qr-code";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase-config";
+import { auth } from "../firebase-config"; 
+import { onAuthStateChanged } from "firebase/auth"; 
 import useAuth from "../custom-hooks/useAuth";
-import useGetData from "../custom-hooks/useGetData"; // Import useGetData
+import useGetData from "../custom-hooks/useGetData";
 
 const Credits = () => {
   const [user, setUser] = useState(null);
   const { currentUser } = useAuth();
-  const { data: usersData } = useGetData("users"); 
+  const { data: usersData } = useGetData("users");
 
   useEffect(() => {
-    if (currentUser) {
-      const userUid = currentUser.uid; 
-      const fetchData = async () => {
-        const userDocRef = doc(db, "users", userUid); // Use UID here
+    const fetchData = async () => {
+      if (currentUser) {
+        const userUid = currentUser.uid;
+        const userDocRef = doc(db, "users", userUid);
         const userDocSnap = await getDoc(userDocRef);
         if (userDocSnap.exists()) {
           setUser(userDocSnap.data());
         }
-      };
+      }
+    };
 
-      fetchData();
-    }
+    fetchData();
   }, [currentUser]);
+
+  useEffect(() => {
+    // Use onAuthStateChanged to handle user authentication state changes
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, you can set the user in your component state
+        setUser(user);
+      } else {
+        // User is signed out
+        setUser(null);
+      }
+    });
+
+    // Return a cleanup function to unsubscribe when the component unmounts
+    return () => unsubscribe();
+  }, []);
 
   return (
     <Helmet title={"Credits"}>
@@ -50,13 +69,17 @@ const Credits = () => {
                 <p className="hero__subtitle">
                   Participate in more activities & earn coupons!
                 </p>
-                <h2>
-                  You currently have : <br />{" "}
-                  <span className="coupon-count">
-                    {user ? user.coupon : ""}
-                  </span>{" "}
-                  <br /> COUPONS
-                </h2>
+                {user && user.displayName ? (
+                  <h2>
+                    Hi,<br /> {user.displayName}, <br /> You currently have : <br />{" "}
+                    <span className="coupon-count">
+                      {user ? user.coupon : ""}
+                    </span>{" "}
+                    <br /> COUPONS
+                  </h2>
+                ) : (
+                  <h2>Loading...</h2>
+                )}
                 <h4>How it works?</h4>
                 <ol>
                   <li>

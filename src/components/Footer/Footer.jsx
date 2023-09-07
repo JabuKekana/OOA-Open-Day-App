@@ -1,17 +1,52 @@
-import React from "react";
-// import { Container } from "reactstrap";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 import { Link } from "react-router-dom";
+import  useAuth  from "../../custom-hooks/useAuth";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase-config";
+import { auth } from "../../firebase-config"; 
+import { onAuthStateChanged } from "firebase/auth"; 
+import useGetData from "../../custom-hooks/useGetData";
 import "./footer.css";
 
 const Footer = () => {
+
   const year = new Date().getFullYear();
+  const [isAdmin, setIsAdmin] = useState(false);
+  const { currentUser } = useAuth();
+
+  useEffect(() => {
+    const fetchUserRole = async () => {
+      if (currentUser) {
+        const userUid = currentUser.uid;
+        const userDocRef = doc(db, "users", userUid);
+        const userDocSnap = await getDoc(userDocRef);
+
+        if (userDocSnap.exists()) {
+          const userData = userDocSnap.data();
+          setIsAdmin(userData && userData.isAdmin);
+        }
+      }
+    };
+
+    fetchUserRole();
+  }, [currentUser]);
 
   return (
     <footer className="footer">
       <Container>
         <Row>
           <Col lg="4" className="mb-4" md="6">
+            <div>
+              <Link to="/" ><button>Sign out</button></Link>
+            </div><br/><br/>
+            {isAdmin && (
+              <div>
+                <Link to="/dashboard">
+                  <button>Admin</button><br/><br/><br/>
+                </Link>
+              </div>
+            )}
             <div className="logo">
               <div className="text-white">
                 <h1>Qurtuba Online Academy</h1>

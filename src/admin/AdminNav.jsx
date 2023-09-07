@@ -61,7 +61,7 @@ const AdminNav = () => {
                 <NavLink to="/dashboard/add-notifications" className="settings-icon">
                   <i className="ri-settings-2-line"></i>
                 </NavLink>
-                <NavLink to="/home" className="settings-icon" onClick={handleLogout}>
+                <NavLink to="/signup" className="settings-icon" onClick={handleLogout}>
                 <i className="ri-home-line"></i>
                 </NavLink>
                 <img

@@ -1,5 +1,5 @@
 .common__section{
-    background: linear-gradient(rgba(0, 0, 0, 0.562), rgba(0, 0, 0, 0.562)), url("../assets/images/common-section-img01.jpg") no-repeat center center;
+    background: none;
     background-size: cover;
     padding: 100px 0px;
     display: flex;

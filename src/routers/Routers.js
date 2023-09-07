@@ -20,6 +20,7 @@ import LandingPage from '../pages/LandingPage';
 import Coupons from '../admin/Coupons';
 import Categories from '../pages/Categories';
 import AddUser from '../admin/AddUser';
+import AdminRoute from './AdminRoute';
 
 
 
@@ -44,12 +45,29 @@ const Routers = () => {
       </Route>
 
 
-      <Route path="dashboard/all-notifications" element={<AllNotifications />} />
+
+      <Route path="/*" element={<AdminRoute />}>
+
+<Route path="dashboard/all-notifications" element={<AllNotifications />} />
+<Route path="dashboard/add-notifications" element={<AddNotifications />} />
+<Route path="dashboard/users" element={<Users />} />
+<Route path="dashboard/coupons" element={<Coupons />} />
+<Route path="dashboard/add-user" element={<AddUser />} />
+<Route path="dashboard" element={<Dashboard />} />
+
+</Route>
+
+
+
+
+
+{/* 
+        <Route path="dashboard/all-notifications" element={<AllNotifications />} />
         <Route path="dashboard/add-notifications" element={<AddNotifications />} />
         <Route path="dashboard/users" element={<Users />} />
         <Route path="dashboard/coupons" element={<Coupons />} />
         <Route path="dashboard/add-user" element={<AddUser />} />
-      <Route path="dashboard" element={<Dashboard />} />
+      <Route path="dashboard" element={<Dashboard />} /> */}
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
       <Route path="landing" element={<LandingPage />} />

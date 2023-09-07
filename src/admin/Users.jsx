@@ -101,10 +101,10 @@ const Users = () => {
               <table className="table table-sm table-bordered">
                 <thead>
                   <tr>
-                    <th>Image</th>
                     <th>QR Code</th>
                     <th>Username</th>
                     <th>Email</th>
+                    <th>No. Of Children</th>
                     <th>Coupon</th>
                     <th>Coupon Action</th>
                     <th>Action</th>
@@ -122,9 +122,6 @@ const Users = () => {
                     usersData?.map((user) => (
                       <tr key={user.uid}>
                         <td>
-                          <img src={user.photoURL} alt="photoUrl" />
-                        </td>
-                        <td>
                           {user.uid ? (
                             <div id={`qrCode-${user.uid}`} className="qr-code-print">
                               <QRCode value={user.uid} size={200} /> {/* Adjust the size prop as needed */}
@@ -135,6 +132,9 @@ const Users = () => {
                         </td>
                         <td>{user.displayName}</td>
                         <td>{user.email}</td>
+                        <td>
+                          {user.numberOfChildren} 
+                        </td>
                         <td>{user.coupon || 0}</td>{" "}
                         <td>
                           <button

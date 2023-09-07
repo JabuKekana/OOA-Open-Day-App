@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Services from "../services/Services";
 import NotificationsList from "../components/UI/NotificationsList";
-import counterimg from "../assets/images/counter-timer-img.png";
 import Clock from "../components/UI/Clock";
 import useGetData from "../custom-hooks/useGetData";
 
@@ -34,7 +33,7 @@ const Categories = () => {
     },
     {
       id: 4,
-      name: "VR Experience",
+      name: "VR Experience/Simulator",
       details: "We have something exciting for you! Kids can experience some fun on our VR activities! To gain access to these you would have to attend the presentation first!",
     },
     {
