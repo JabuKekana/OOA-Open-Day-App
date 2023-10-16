@@ -1,3 +1,37 @@
+# QOA Open Day - 2023 Web App.
+
+This is a repository for Qurtuba online Online Academy Web Application which was used for Qurtuba Online Academy's 2023 open day.
+
+Features include:
+
+Signup/Signin - With Firebase Authentication
+3D Map of indoor & outdoor of the venue
+Notifications Page
+Queries Page
+Schedule Page
+Credits Page with users unique QR Code
+Users earn coupons which are stored in Cloud Firestore
+Admins/Marshall's can scan QR Code to see user's coupons or give coupons to users
+Admins can send push notifications - With service worker
+Admins can add users muanually
+Admins can see all users, print QR Codes, Delete & Update Users.
+
+
+
+
+Tech Stack used includes:
+
+React JS
+Firebase Auth
+Cloud Forestore Database
+Firebase Storage
+Modern-react-qr-reader
+React-qr-code
+React-Router-dom
+ReactStrap
+Service Worker
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
