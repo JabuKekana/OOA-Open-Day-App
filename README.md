@@ -21,15 +21,15 @@ Admins can see all users, print QR Codes, Delete & Update Users.
 
 Tech Stack used includes:
 
-React JS
-Firebase Auth
-Cloud Forestore Database
-Firebase Storage
-Modern-react-qr-reader
-React-qr-code
-React-Router-dom
-ReactStrap
-Service Worker
+React JS,
+Firebase Auth,
+Cloud Forestore Database,
+Firebase Storage,
+Modern-react-qr-reader,
+React-qr-code,
+React-Router-dom,
+ReactStrap, and
+Service Worker.
 
 
 # Getting Started with Create React App
