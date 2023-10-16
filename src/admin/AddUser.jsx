@@ -22,6 +22,7 @@ const generateRandomPassword = () => {
 const AddUser = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
+  const [numberOfChildren, setNumberOfChildren] = useState("");
 
   const handleAddUser = async () => {
     try {
@@ -45,7 +46,10 @@ const AddUser = () => {
         email,
         photoURL:
           "https://firebasestorage.googleapis.com/v0/b/open-day-18e43.appspot.com/o/productImages%2Flogo.png?alt=media&token=a8995d2e-42c5-4828-ae30-5e90aede4eae",
-        coupon: 0, // You can set the default coupon value here
+        coupon: 0,
+        numberOfChildren: parseInt(numberOfChildren),
+        isAdmin: false,
+        isMarshal: false,
       });
 
       // Create a coupon document for the user
@@ -91,6 +95,15 @@ const AddUser = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </FormGroup>
+                  <FormGroup>
+                    <Label for="numberOfChildren">Number of Children</Label>
+                    <Input className="input__field"
+                      type="number"
+                      id="numberOfChildren" placeholder="Enter No. of children"
+                      value={numberOfChildren}
+                      onChange={(e) => setNumberOfChildren(e.target.value)}
+                    />
+                  </FormGroup>
             <Button color="primary add-user-btn" onClick={handleAddUser}>
               Add User
             </Button>

@@ -6,32 +6,113 @@ const Schedule = () => {
   const [activities, setActivities] = useState([
     {
       id: 1,
-      name: "Activity 1",
-      details: "Details about Activity 1.",
-      startTime: new Date("2023-09-25T10:00:00"),
+      name: "Virtual club cooking session",
+      details: "10:00 am  Virtual club cooking session",
+      startTime: "10:00 am",
     },
     {
       id: 2,
-      name: "Activity 2",
-      details: "Details about Activity 2.",
-      startTime: new Date("2023-09-25T09:30:00"),
+      name: "Presentation at Gardenia Hall",
+      details: "10:00-10:30 am Presentation at Gardenia Hall",
+      startTime: "10:30 am",
     },
     {
       id: 3,
-      name: "Activity 3",
-      details: "Details about Activity 1.",
-      startTime: new Date("2023-09-25T10:30:00"),
+      name: "Presentation at Jasmine Hall",
+      details: "10:30- 11:00 am Presentation at Jasmine Hall",
+      startTime: "10:30 am",
     },
     {
       id: 4,
-      name: "Activity 4",
-      details: "Details about Activity 2.",
-      startTime: new Date("2023-09-25T12:30:00"),
+      name: "Arts and Crafts session",
+      details: "11:00am - Arts and Crafts session",
+      startTime: "11:00 am",
+    },
+    {
+      id: 5,
+      name: "Presentation at Gardenia Hall ",
+      details: "11:00-11:30 am - Presentation at Gardenia Hall",
+      startTime: "11:00 am",
+    },
+    {
+      id: 6,
+      name: "Presentation at Jasmine Hall",
+      details: "11:30- 12:00 pm - Presentation at Jasmine Hall",
+      startTime: "11:30 am",
+    },
+    {
+      id: 7,
+      name: "Virtual club cooking session",
+      details: "12:00 pm- Virtual club cooking session",
+      startTime: "12:00 am",
+    },
+    {
+      id: 8,
+      name: "Presentation in Gardenia Hall",
+      details: "12:00- 12:30 pm - Presentation in Gardenia Hall",
+      startTime: "12:00 am",
+    },
+    {
+      id: 9,
+      name: "Presentation in Jasmine Hall",
+      details: "12:30- 13:00 pm - Presentation in Jasmine Hall",
+      startTime: "12:30 am",
+    },
+    {
+      id: 10,
+      name: "Arts and Crafts session",
+      details: "13:00 pm - Arts and Crafts session",
+      startTime: "13:00 am",
+    },
+    {
+      id: 11,
+      name: "Presentation at Gardenia Hall",
+      details: "13:00- 13:30 pm - Presentation at Gardenia Hall",
+      startTime: "13:00 am",
+    },
+    {
+      id: 12,
+      name: "Presentation at Jasmine Hall",
+      details: "13:30- 14:00 pm - Presentation at Jasmine Hall",
+      startTime: "13:30 am",
+    },
+    {
+      id: 13,
+      name: "Virtual club cooking session",
+      details: "14:00 pm - Virtual club cooking session",
+      startTime: "14:00 am",
+    },
+    {
+      id: 14,
+      name: "Presentation at Gardenia Hall",
+      details: "14:00- 14:30 pm - Presentation at Gardenia Hall",
+      startTime: "14:00 am",
+    },
+    {
+      id: 15,
+      name: "Presentation at Jasmine Hall",
+      details: "14:30- 15:00 pm - Presentation at Jasmine Hall",
+      startTime: "14:30 am",
+    },
+    {
+      id: 16,
+      name: "Arts and Crafts session",
+      details: "15:00 pm - Arts and Crafts session",
+      startTime: "15:00 am",
+    },
+    {
+      id: 17,
+      name: "Presentation at Gardenia Hall ",
+      details: "15:00- 15:30- Presentation at Gardenia Hall",
+      startTime: "15:00 am",
+    },
+    {
+      id: 18,
+      name: "Presentation at Jasmine Hall",
+      details: "15:30- 16:00- Presentation at Jasmine Hall",
+      startTime: "15:30 am",
     },
   ]);
-
-  // Sort activities by start time (ascending order)
-  activities.sort((a, b) => a.startTime - b.startTime);
 
   const [selectedActivity, setSelectedActivity] = useState(null);
 
@@ -41,11 +122,6 @@ const Schedule = () => {
     } else {
       setSelectedActivity(activityId);
     }
-  };
-
-  const isActivityPassed = (activity) => {
-    // Check if the activity's start time is in the past
-    return activity.startTime < new Date();
   };
 
   return (
@@ -58,7 +134,7 @@ const Schedule = () => {
             key={activity.id}
             className={`activity-item ${
               selectedActivity === activity.id ? "active" : ""
-            } ${isActivityPassed(activity) ? "passed-activity" : ""}`}
+            }`}
           >
             <div className="activity-header">
               <h3
@@ -71,10 +147,10 @@ const Schedule = () => {
                 className="show-more-button"
                 onClick={() => handleActivityClick(activity.id)}
               >
-                {selectedActivity === activity.id ? "Show Less" : "Show More"}
+                {selectedActivity === activity.id ? "Less" : "More"}
               </button>
             </div>
-            <CountdownTimer targetTime={activity.startTime} />
+            <p className="static-time">{activity.startTime}</p>
             {selectedActivity === activity.id && (
               <div className="activity-details">{activity.details}</div>
             )}

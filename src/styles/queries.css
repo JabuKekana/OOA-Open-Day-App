@@ -114,3 +114,14 @@ button:hover {
     width: 100%;
   }
 }
+
+.queries__content {
+  background-color: #8b1a4b;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background-color 0.3s ease-in-out;
+  text-align: center;
+  margin: 30%;
+}

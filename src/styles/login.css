@@ -15,6 +15,7 @@
     background: var(--primary-color);
     padding: 40px;
     border-radius: 5px;
+  z-index: 2;
 }
 .auth__btn{
     background: #AB8E3D !important;
@@ -48,7 +49,7 @@
 .bot-image {
     position: absolute;
     top: 68%; 
-    left: 69%; 
+    left: 72%; 
     transform: translate(-50%, -50%); 
     width: 50%;
     height: auto; 
@@ -237,7 +238,7 @@
     pointer-events: none;
   }
 
-  .signup__page input{
+  .toggle-link{
     z-index: 999;
-    color: red;
+    color: rgb(255, 255, 255);
   }

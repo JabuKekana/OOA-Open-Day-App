@@ -4,7 +4,7 @@ import useAuth from "../custom-hooks/useAuth";
 import "../styles/admin-nav.css";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
-import { auth } from "../firebase-config"; 
+import { auth } from "../firebase-config";
 import { signOut } from "firebase/auth";
 
 const admin__nav = [
@@ -52,17 +52,22 @@ const AdminNav = () => {
               <div className="logo">
                 <h2>Qurtuba Online Academy</h2>
               </div>
-
-              
               <div className="admin__nav-top-right">
                 <span>
                   <i className="ri-notifications-3-line"></i>
                 </span>
-                <NavLink to="/dashboard/add-notifications" className="settings-icon">
-                  <i className="ri-settings-2-line"></i>
+                <NavLink
+                  to="/dashboard/add-notifications"
+                  className="settings-icon"
+                >
+                  <i className="ri-notification-line"></i>
                 </NavLink>
-                <NavLink to="/signup" className="settings-icon" onClick={handleLogout}>
-                <i className="ri-home-line"></i>
+                <NavLink
+                  to="/signup"
+                  className="settings-icon"
+                  onClick={handleLogout}
+                >
+                  <i className="ri-home-line"></i>
                 </NavLink>
                 <img
                   src={currentUser && currentUser.photoURL}

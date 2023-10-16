@@ -1,30 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import useGetData from "../custom-hooks/useGetData";
-import { deleteDoc, doc } from "firebase/firestore";
+import { deleteDoc, doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase-config";
 import { toast } from "react-toastify";
 import QRCode from "react-qr-code";
 import "../styles/users.css";
+import { saveAs } from 'file-saver';
+import html2canvas from 'html2canvas';
+import useAuth from "../custom-hooks/useAuth";
 
-// Import the new function for updating user coupons
+
+
 import { updateDoc } from "firebase/firestore";
 
 const Users = () => {
   const { data: usersData, loading } = useGetData("users");
+  const [qrCodes, setQrCodes] = useState({});
+  const { currentUser } = useAuth();
+  const [isAdmin, setIsAdmin] = useState(false);
+
+
+  useEffect(() => {
+    const fetchUserAdminStatus = async () => {
+      if (currentUser) {
+        const userUid = currentUser.uid;
+        const userDocRef = doc(db, "users", userUid);
+
+        try {
+          const userDocSnap = await getDoc(userDocRef);
+
+          if (userDocSnap.exists()) {
+            const userData = userDocSnap.data();
+            setIsAdmin(userData && userData.isAdmin);
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+          toast.error("Error fetching user data. Please try again later.");
+        }
+      }
+    };
+
+    fetchUserAdminStatus();
+  }, [currentUser]);
 
   const deleteUser = async (id) => {
     await deleteDoc(doc(db, "users", id));
     toast.success("User deleted!");
   };
 
-  // Define a function to update a user's coupon value
+
   const updateUserCoupon = async (userId, newCouponValue) => {
     const userDocRef = doc(db, "users", userId);
 
     try {
       await updateDoc(userDocRef, {
-        coupon: newCouponValue, // Update the coupon field with the new value
+        coupon: newCouponValue,
       });
 
       toast.success("User coupon updated successfully");
@@ -33,7 +64,6 @@ const Users = () => {
     }
   };
 
-  // Function to handle increasing coupon
   const increaseCoupon = (userId) => {
     const user = usersData.find((user) => user.uid === userId);
     if (user) {
@@ -43,54 +73,32 @@ const Users = () => {
     }
   };
 
-  // Function to handle decreasing coupon
   const decreaseCoupon = (userId) => {
     const user = usersData.find((user) => user.uid === userId);
     if (user) {
       const currentCoupon = user.coupon || 0;
-      const newCouponValue = Math.max(0, currentCoupon - 1); // Ensure coupon doesn't go negative
+      const newCouponValue = Math.max(0, currentCoupon - 1);
       updateUserCoupon(userId, newCouponValue);
     }
   };
 
-  // Function to print QR code
-  const printQRCode = (uid) => {
-    const qrCodeElement = document.getElementById(`qrCode-${uid}`);
-
-    if (qrCodeElement) {
-      const printWindow = window.open("", "", "width=400,height=400");
-      printWindow.document.open();
-      printWindow.document.write("<html><head><title>Print</title></head><body>");
-      printWindow.document.write(`
-        <style>
-          body {
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-          }
-          @media print {
-            .qr-code-print {
-              width: 250px;
-              height: 250px;
-            }
-          }
-        </style>
-      `);
-      printWindow.document.write(qrCodeElement.innerHTML);
-      printWindow.document.write("</body></html>");
-      printWindow.document.close();
-      printWindow.print();
-    } else {
-      console.error("QR code element not found");
-    }
-  };
+ // Function to download QR code as PNG
+ const downloadQRCode = async (uid) => {
+  const qrCodeElement = document.getElementById(`qrCode-${uid}`);
+  
+  if (qrCodeElement) {
+    const canvas = await html2canvas(qrCodeElement);
+    canvas.toBlob((blob) => {
+      saveAs(blob, `qr_code_${uid}.png`);
+    });
+  } else {
+    console.error("QR code element not found");
+  }
+};
 
   return (
     <section className="users__section">
+    {isAdmin ? (
       <Container>
         <Row>
           <Col lg="12">
@@ -123,8 +131,11 @@ const Users = () => {
                       <tr key={user.uid}>
                         <td>
                           {user.uid ? (
-                            <div id={`qrCode-${user.uid}`} className="qr-code-print">
-                              <QRCode value={user.uid} size={200} /> {/* Adjust the size prop as needed */}
+                            <div
+                              id={`qrCode-${user.uid}`}
+                              className="qr-code-print"
+                            >
+                              <QRCode value={user.uid} size={200} />
                             </div>
                           ) : (
                             <span>Error: QR CODE FAILED</span>
@@ -132,10 +143,8 @@ const Users = () => {
                         </td>
                         <td>{user.displayName}</td>
                         <td>{user.email}</td>
-                        <td>
-                          {user.numberOfChildren} 
-                        </td>
-                        <td>{user.coupon || 0}</td>{" "}
+                        <td>{user.numberOfChildren}</td>
+                        <td>{user.coupon || 0}</td>
                         <td>
                           <button
                             className="btn btn-warning btn-sm"
@@ -163,9 +172,9 @@ const Users = () => {
                         <td>
                           <button
                             className="btn btn-success btn-sm"
-                            onClick={() => printQRCode(user.uid)}
+                            onClick={() => downloadQRCode(user.uid)}
                           >
-                            Print QR Code
+                            Download QR Code
                           </button>
                         </td>
                       </tr>
@@ -177,8 +186,13 @@ const Users = () => {
           </Col>
         </Row>
       </Container>
-    </section>
-  );
+    ) : (
+      <div>
+        You don't have permission to view this page. Please contact your administrator.
+      </div>
+    )}
+  </section>
+);
 };
 
 export default Users;

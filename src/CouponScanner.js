@@ -1,16 +1,22 @@
+
+
+
+
+
+
 import React, { useState } from "react";
-import { QrReader } from "react-qr-reader";
 import { Container, Row, Col } from "reactstrap";
-import UserDetails from "./UserDetails"; // Import the UserDetails component
+import UserDetails from "./UserDetails"; 
+import QrReader from "modern-react-qr-reader"; 
 
 const CouponScanner = () => {
   const [scannedData, setScannedData] = useState(null);
-  const [cameraOpen, setCameraOpen] = useState(true); // State to control whether the camera is open
+  const [cameraOpen, setCameraOpen] = useState(true); 
 
   const handleScan = (data) => {
     if (data) {
       setScannedData(data);
-      setCameraOpen(false); // Close the camera when data is scanned
+      setCameraOpen(false); 
     }
   };
 
@@ -21,23 +27,24 @@ const CouponScanner = () => {
   const handleQRCodeResult = (result) => {
     if (result) {
       setScannedData(result.text);
-      setCameraOpen(false); // Close the camera when data is scanned
+      setCameraOpen(false); 
     }
   };
-  
 
   return (
     <Container>
       <Row>
         <Col lg="6">
           <h2>QR Code Scanner</h2>
-          {cameraOpen && ( // Render the QrReader component only if cameraOpen is true
+          {cameraOpen && (
+            // Render the QrReader component from modern-react-qr-reader
             <QrReader
               delay={300}
               onError={handleError}
               onScan={handleScan}
               onResult={handleQRCodeResult}
               style={{ width: "100%" }}
+              constraints={ {facingMode: 'environment'} }
             />
           )}
         </Col>

@@ -50,3 +50,24 @@
     max-width: 100%; 
   }
 }
+
+.download__btn {
+  display: inline-block;
+  background-color: #8b1a4b;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.download__btn i {
+  margin-right: 5px;
+}
+
+.download__btn:hover {
+  background-color: #0056b3; 
+}
+.icon-row i{
+  font-size: 20px;
+}

@@ -19,9 +19,9 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [numberOfChildren, setNumberOfChildren] = useState("");
-  const [isSignUp, setIsSignUp] = useState(false); // Add a state to track if it's sign-up or login
+  const [isSignUp, setIsSignUp] = useState(false); 
   const navigate = useNavigate();
-  const { currentUser } = useAuth(); // Use the hook to get the current user
+  const { currentUser } = useAuth();
 
   const handleEmailAndPasswordSignUp = async () => {
     setLoading(true);
@@ -44,9 +44,10 @@ const Login = () => {
         displayName: fullName,
         email: user.email,
         photoURL: user.photoURL,
-        coupon: 0,
+        coupon: 1,
         numberOfChildren: parseInt(numberOfChildren),
         isAdmin: false,
+        isMarshal: false,
       });
 
       // Create a coupon document for the user
@@ -161,14 +162,6 @@ const Login = () => {
           </Row>
         </Container>
       </section>
-      <section className="admin__btn">
-        
-        <Link to="/login">
-          <button>QOA</button>
-        </Link>
-              {/* <CircleAnimation /> */}
-      </section>
-
     </Helmet>
   );
 };

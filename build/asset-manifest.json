@@ -1,21 +1,23 @@
 {
   "files": {
-    "main.css": "/qoa-op-app/static/css/main.4caef050.css",
-    "main.js": "/qoa-op-app/static/js/main.75182446.js",
-    "static/media/remixicon.svg?t=1590207869815": "/qoa-op-app/static/media/remixicon.9cedd2150922ead84869.svg",
-    "static/media/remixicon.eot?t=1590207869815": "/qoa-op-app/static/media/remixicon.5cb99e6cba5a4619063f.eot",
-    "static/media/remixicon.ttf?t=1590207869815": "/qoa-op-app/static/media/remixicon.f2616f597cf98f38d234.ttf",
-    "static/media/hero-img.png": "/qoa-op-app/static/media/hero-img.ecec5449da11446d4c20.png",
-    "static/media/remixicon.woff?t=1590207869815": "/qoa-op-app/static/media/remixicon.8d09fa11700ed63cf96e.woff",
-    "static/media/remixicon.woff2?t=1590207869815": "/qoa-op-app/static/media/remixicon.90668f6f9b3c2c18a090.woff2",
-    "static/media/Spartan-Regular.ttf": "/qoa-op-app/static/media/Spartan-Regular.ec043a9cdcb87ec70f61.ttf",
-    "static/media/CHATBOT-02 1.png": "/qoa-op-app/static/media/CHATBOT-02 1.68fc66df6734b2487e34.png",
-    "index.html": "/qoa-op-app/index.html",
-    "main.4caef050.css.map": "/qoa-op-app/static/css/main.4caef050.css.map",
-    "main.75182446.js.map": "/qoa-op-app/static/js/main.75182446.js.map"
+    "main.css": "/static/css/main.c44a4a7f.css",
+    "main.js": "/static/js/main.054e3494.js",
+    "static/media/remixicon.svg?t=1590207869815": "/static/media/remixicon.9cedd2150922ead84869.svg",
+    "static/media/remixicon.eot?t=1590207869815": "/static/media/remixicon.5cb99e6cba5a4619063f.eot",
+    "static/media/remixicon.ttf?t=1590207869815": "/static/media/remixicon.f2616f597cf98f38d234.ttf",
+    "static/media/hero-img.png": "/static/media/hero-img.ecec5449da11446d4c20.png",
+    "static/media/remixicon.woff?t=1590207869815": "/static/media/remixicon.8d09fa11700ed63cf96e.woff",
+    "static/media/indoor-map-4.jpg": "/static/media/indoor-map-4.a83665ae5b5b4ac04eea.jpg",
+    "static/media/remixicon.woff2?t=1590207869815": "/static/media/remixicon.90668f6f9b3c2c18a090.woff2",
+    "static/media/outdoor-map-5.jpg": "/static/media/outdoor-map-5.cefe5636c249a005e126.jpg",
+    "static/media/Spartan-Regular.ttf": "/static/media/Spartan-Regular.ec043a9cdcb87ec70f61.ttf",
+    "static/media/CHATBOT-02 1.png": "/static/media/CHATBOT-02 1.68fc66df6734b2487e34.png",
+    "index.html": "/index.html",
+    "main.c44a4a7f.css.map": "/static/css/main.c44a4a7f.css.map",
+    "main.054e3494.js.map": "/static/js/main.054e3494.js.map"
   },
   "entrypoints": [
-    "static/css/main.4caef050.css",
-    "static/js/main.75182446.js"
+    "static/css/main.c44a4a7f.css",
+    "static/js/main.054e3494.js"
   ]
 }

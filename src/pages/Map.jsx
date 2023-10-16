@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "../styles/map.css";
+import outdoorMapImage from "../assets/images/outdoor-map-5.jpg";
+import indoorMapImage from "../assets/images/indoor-map-4.jpg";
+
 
 const Map = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const outdoorMapImageUrl = "../assets/images/outdoor-map-5.jpg";
+  const indoorMapImageUrl = "https://example.com/indoor-map.png";
 
   // Simulate loading delay with useEffect
   useEffect(() => {
@@ -33,6 +38,9 @@ const Map = () => {
           </a>
           <a href="#your-link-here-5">
             <i className="ri-game-line"></i>
+          </a><br/>
+          <a href={outdoorMapImage} download="outdoor-map.jpg" className="download__btn">
+            <i className="ri-download-2-fill"></i> Download Outdoor Map
           </a>
         </div>
       </div>
@@ -43,13 +51,16 @@ const Map = () => {
           <iframe
             width="840"
             height="680"
-            src="https://3dthis.com/play.htm?h=LTMwMjYzMzA"
+            src="https://3dthis.com/play.htm?h=ODAxMzMxNw"
             allowFullScreen
             title="Outside Map"
             autoPlay
           ></iframe>
         </div>
       )}
+
+
+      
       <h2>Indoor Map</h2>
       <div className="map-heading">
         <div className="icon-row">
@@ -67,6 +78,9 @@ const Map = () => {
           </a>
           <a href="#your-link-here-5">
             <i className="ri-game-line"></i>
+          </a><br/>
+          <a href={indoorMapImage} download="indoor-map.jpg" className="download__btn">
+            <i className="ri-download-2-fill"></i> Download Indoor Map
           </a>
         </div>
       </div>
@@ -77,7 +91,7 @@ const Map = () => {
           <iframe
             width="840"
             height="680"
-            src="https://3dthis.com/play.htm?h=NDIwOTQ3Nw"
+            src="https://3dthis.com/play.htm?h=LTM3MjU1Njg"
             allowFullScreen
             title="Indoor Map"
             autoPlay

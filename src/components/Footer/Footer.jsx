@@ -13,6 +13,7 @@ const Footer = () => {
 
   const year = new Date().getFullYear();
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isMarshal, setIsMarshal] = useState(false);
   const { currentUser } = useAuth();
 
   useEffect(() => {
@@ -25,6 +26,7 @@ const Footer = () => {
         if (userDocSnap.exists()) {
           const userData = userDocSnap.data();
           setIsAdmin(userData && userData.isAdmin);
+          setIsMarshal(userData && userData.isMarshal);
         }
       }
     };
@@ -41,12 +43,18 @@ const Footer = () => {
               <Link to="/" ><button>Sign out</button></Link>
             </div><br/><br/>
             {isAdmin && (
-              <div>
-                <Link to="/dashboard">
-                  <button>Admin</button><br/><br/><br/>
-                </Link>
-              </div>
-            )}
+  <div>
+    <Link to="/dashboard">
+      <button>Admin</button><br /><br />
+    </Link>
+  </div>
+)}
+{isMarshal && (
+  <Link to="/marshal-coupons">
+  <button>QR Code Scanner</button><br />
+</Link>
+)}
+<br/>
             <div className="logo">
               <div className="text-white">
                 <h1>Qurtuba Online Academy</h1>
